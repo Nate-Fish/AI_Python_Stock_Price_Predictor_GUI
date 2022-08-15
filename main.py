@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-import pandas_datareader as web
 import datetime as dt
+import pandas_datareader as pdr
 
 from tkinter import *
 from sklearn.preprocessing import MinMaxScaler
@@ -16,7 +16,7 @@ def myClick():
     epochsAmount = epochsEntry.get()
     start = dt.datetime(2012, 1, 1)
     end = dt.datetime(2020, 1, 1)
-    data = web.DataReader(company, 'yahoo', start, end)
+    data = pdr.DataReader(company, 'yahoo', start, end)
 
     # Prepare Data
     scaler = MinMaxScaler(feature_range=(0, 1))
@@ -55,7 +55,7 @@ def myClick():
     test_start = dt.datetime(2020, 1, 1)
     test_end = dt.datetime.now()
 
-    test_data = web.DataReader(company, 'yahoo', test_start, test_end)
+    test_data = pdr.DataReader(company, 'yahoo', test_start, test_end)
     actual_prices = test_data['Close'].values
 
     total_dataset = pd.concat((data['Close'], test_data['Close']), axis=0)
