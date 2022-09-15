@@ -1,1 +1,1 @@
-# AI_Python_Stock_Price_Predictor_GUI
+# AI Python Stock Price Predictor UI
